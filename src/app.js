@@ -6,7 +6,7 @@ const fs = require("fs")
 // const collection = require("./mongodb")
 require("./mongodb")
 // const { connectToDatabase } = require("./mongodb")
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8081
 const static_path = path.join(__dirname, "../public");
 const index_path = path.join(__dirname, "../public/index.html");
 const {json} = require("express")
