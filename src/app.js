@@ -60,7 +60,7 @@ app.post("/login", async (req, res) =>{
     try {
         const checkUser = await Register.findOne({username: req.body.username})
         if (!checkUser){
-            res.status(404).send("TUI GADHAR BACHHA bnaara!")
+            res.status(404).send("User doesn't exist")
         }
         if (checkUser.password == req.body.password) {
             fs.readFile(index_path, "utf8", (err, data) => {
@@ -73,7 +73,7 @@ app.post("/login", async (req, res) =>{
             })
         }
         else{
-            res.send("BAALER PASSWORD bnaara!")
+            res.send("Wrong password ! Please try again.")
         }
     } catch (error) {
         res.send(error.message)
