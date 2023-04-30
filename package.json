@@ -6,6 +6,7 @@
     "nodemon": "^2.0.22"
   },
   "scripts": {
-    "dev": "nodemon src/app.js -e js,html,css"
+    "dev": "nodemon src/app.js -e js,html,css",
+    "build" : "npm i"
   }
 }
