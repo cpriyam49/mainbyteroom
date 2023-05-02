@@ -38,14 +38,8 @@ app.post("/register", async (req, res) =>{
 
         // res.status(201).render("../public/index.html")
 
-        fs.readFile(index_path, "utf8", (err, data) => {
-            if (err) {
-                res.status(500).send(err)
-            }
-            else{
-                res.status(201).send(data)
-            }
-        });
+        res.redirect("https://serverbyteroom.netlify.app/");
+
         // console.log(req.body.username)
         // console.log(req.body.password)
         // res.send(req.body.username)
