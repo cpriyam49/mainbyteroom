@@ -36,9 +36,15 @@ app.post("/register", async (req, res) =>{
 
         const registered = await registerUser.save()
 
-        // res.status(201).render("../public/index.html")
+       fs.readFile(index_path, "utf8", (err, data) => {
+            if (err) {
+                res.status(500).send(err)
+            }
+            else{
+                res.status(201).send(data)
+            }
+        });
 
-        res.redirect("https://serverbyteroom.netlify.app/");
 
         // console.log(req.body.username)
         // console.log(req.body.password)
@@ -57,14 +63,8 @@ app.post("/login", async (req, res) =>{
             res.status(404).send("User doesn't exist")
         }
         if (checkUser.password == req.body.password) {
-            fs.readFile(index_path, "utf8", (err, data) => {
-                if (err) {
-                    res.status(500).send(err)
-                }
-                else{
-                    res.status(201).send(data)
-                }
-            })
+                    res.redirect("https://serverbyteroom.netlify.app/");
+
         }
         else{
             res.send("Wrong password ! Please try again.")
